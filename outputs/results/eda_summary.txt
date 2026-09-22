@@ -1,0 +1,41 @@
+================================================================================
+CRIMEMAPX - EXPLORATORY DATA ANALYSIS (EDA) EXECUTIVE SUMMARY
+================================================================================
+
+1. DATASET OVERVIEW
+--------------------------------------------------------------------------------
+- Total Reported Crime Records : 40,160
+- Total Attributes Engineered : 24
+- Geographical Coverage       : 29 Indian Cities
+- Date Range Covered          : 2020 - 2024
+
+2. CRITICAL CRIME HOTSPOTS & CATEGORIES
+--------------------------------------------------------------------------------
+- Highest Incident City       : Delhi (5,400 incidents, 13.4%)
+- Dominant Crime Domain       : Other Crime (57.1% of all cases)
+- Top 3 Reported Crimes       :
+  * BURGLARY: 1,980
+  * VANDALISM: 1,975
+  * FRAUD: 1,965
+
+3. TEMPORAL RISK PROFILE
+--------------------------------------------------------------------------------
+- Most Vulnerable Time Period : Night (37.3% of all incidents)
+- Peak Occurrence Hour        : 11:00 hrs
+- Highest Incident Day of Week: Saturday (5,760 incidents)
+
+4. DEMOGRAPHICS & OPERATIONS
+--------------------------------------------------------------------------------
+- Most Affected Age Group     : Senior (16,544 victims)
+- Overall Case Closure Rate   : 50.0%
+- Average Police Deployed     : 10.01 personnel per case
+
+5. DATASET STATISTICAL CHARACTERISTICS
+--------------------------------------------------------------------------------
+- Crime Description Spread    : Near-uniform across all 21 categories (1,859 - 1,980 incidents each)
+- Day of Week Spread          : Perfectly balanced across weekdays (5,712 - 5,760 incidents; Sat/Sun tied at 5,760)
+- Hourly Distribution         : Uniform incident flow across all 24 hours (~1,673 incidents/hour)
+- Night Period Weight         : 37.3% volume directly matches its 9-hour span (21:00 - 06:00 = 37.5% of day)
+- Benchmark Balance           : Exactly 50.0% cases closed vs 50.0% open (synthetic/benchmark dataset pattern)
+
+================================================================================
