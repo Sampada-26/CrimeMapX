@@ -2,6 +2,9 @@
 
 ### Association Rule Mining and Interactive Visualization of Crime Patterns
 
+Problem Statement:
+Crime datasets contain large amounts of information about crime types, occurrence times, victim demographics, weapons, case status, and locations. However, raw crime data is difficult to interpret and does not directly reveal frequently occurring relationships between these attributes. There is a need for a data mining system that can preprocess and analyze historical crime data, discover meaningful associations among crime characteristics, and present crime patterns through an interactive geographical visualization. CrimeMapX aims to address this problem using Association Rule Mining and interactive map-based visualization to identify and explore significant patterns in historical crime data.
+
 **CrimeMapX** is a data mining and visualization project that analyzes historical crime data to identify **frequent crime patterns and associations** and presents the findings through an **interactive crime map and visual analytics**.
 
 The project applies data preprocessing, exploratory analysis, temporal analysis, and **Association Rule Mining using the Apriori algorithm** to discover relationships between crime characteristics such as crime type, crime domain, time of occurrence, victim demographics, weapons used, and case status.
