@@ -50,6 +50,31 @@ The project uses a historical crime dataset containing information about reporte
 
 ---
 
+## Project Structure
+CrimeMapX/
+│
+├── data/
+│   ├── raw/
+│   │   └── crime_data.csv
+│   │
+│   └── processed/
+│
+├── src/
+│   └── preprocessing.py
+│
+├── notebooks/
+│   └── exploration.ipynb
+│
+├── outputs/
+│   ├── figures/
+│   ├── maps/
+│   └── results/
+│
+├── main.py
+├── requirements.txt
+└── README.md
+
+
 ## 🔄 Project Workflow
 
 ```text
