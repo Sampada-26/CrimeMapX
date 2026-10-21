@@ -12,7 +12,7 @@ CRIMEMAPX - EXPLORATORY DATA ANALYSIS (EDA) EXECUTIVE SUMMARY
 2. CRITICAL CRIME HOTSPOTS & CATEGORIES
 --------------------------------------------------------------------------------
 - Highest Incident City       : Delhi (5,400 incidents, 13.4%)
-- Dominant Crime Domain       : Other Crime (57.1% of all cases)
+- Dominant Crime Domain       : Property & Financial Crime (38.1% of all cases)
 - Top 3 Reported Crimes       :
   * BURGLARY: 1,980
   * VANDALISM: 1,975

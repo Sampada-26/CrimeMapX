@@ -1,29 +1,36 @@
 import pandas as pd
 from mlxtend.frequent_patterns import apriori, association_rules
-from mlxtend.preprocessing import TransactionEncoder
 
-def run_association_mining(input_path='data/processed/crime_data_processed.csv'):
-    df = pd.read_csv(input_path)
+def run_association_mining(file_path=r'C:\Users\Vidisha Mankar\Desktop\DMBIPROJECT\CrimeMapX\data\processed\crime_data_processed.csv'):
+    print(f"Loading processed dataset for Association Rule Mining from: {file_path}")
+    df = pd.read_csv(file_path)
     
-    # Select categorical columns for transactions
-    features = ['Crime Domain', 'Time Period', 'Victim Gender', 'Weapon Used', 'Age Group']
-    df_subset = df[features].dropna()
+    # Select your categorical columns for market basket analysis
+    features = ['crime_domain', 'weapon_used', 'time_period', 'day_of_week', 'city']
+    available_features = [f for f in features if f in df.columns]
+    basket_df = df[available_features].dropna()
     
-    transactions = df_subset.values.tolist()
+    # One-hot encode the categorical variables
+    print("One-hot encoding features...")
+    df_encoded = pd.get_dummies(basket_df)
     
-    te = TransactionEncoder()
-    te_ary = te.fit(transactions).transform(transactions)
-    df_encoded = pd.DataFrame(te_ary, columns=te.columns_)
+    # Apply Apriori algorithm with lower support to capture rules
+    print("Running Apriori algorithm...")
+    frequent_itemsets = apriori(df_encoded, min_support=0.002, use_colnames=True)
     
-    # Apply Apriori
-    frequent_itemsets = apriori(df_encoded, min_support=0.05, use_colnames=True)
-    rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.6)
-    rules = rules.sort_values(by="lift", ascending=False)
+    # Generate association rules based on confidence (20% threshold)
+    rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.2)
     
-    # Save results
-    rules.to_csv('outputs/results/association_rules.csv', index=False)
-    print("Association rules mined and saved to outputs/results/association_rules.csv")
+    # Sort by lift to find the strongest correlations
+    if not rules.empty:
+        rules = rules.sort_values(by="lift", ascending=False)
+    
+    print(f"Generated {len(rules)} association rules.")
     return rules
 
 if __name__ == "__main__":
-    run_association_mining()
+    rules = run_association_mining()
+    if not rules.empty:
+        print(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']].head(10))
+    else:
+        print("No rules generated.")
