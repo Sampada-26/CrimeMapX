@@ -45,30 +45,81 @@ The project uses a historical crime dataset containing information about reporte
 
 ---
 
-## Project Structure
-CrimeMapX/
-│
-├── data/
-│   ├── raw/
-│   │   └── crime_data.csv
-│   │
-│   └── processed/
-│
-├── src/
-│   └── preprocessing.py
-│
-├── notebooks/
-│   └── exploration.ipynb
-│
-├── outputs/
-│   ├── figures/
-│   ├── maps/
-│   └── results/
-│
-├── main.py
-├── requirements.txt
-└── README.md
+## 🚀 How to Run the Project
 
+### 1) Clone the repository
+
+```bash
+git clone https://github.com/Sampada-26/CrimeMapX.git
+cd CrimeMapX
+```
+
+### 2) Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+On macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 3) Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4) Preprocess the raw dataset
+
+The project expects the raw file at `data/raw/crime_dataset_india.csv`.
+Run the preprocessing pipeline to clean and transform the dataset into the processed CSV used by the analysis scripts:
+
+```bash
+python src/preprocessing.py
+```
+
+This creates:
+
+- `data/processed/crime_data_processed.csv`
+- the processed dataset required by `main.py` and `app.py`
+
+### 5) Run the full analysis pipeline
+
+```bash
+python main.py
+```
+
+This step:
+
+- loads the processed dataset
+- runs Apriori association rule mining
+- saves the discovered rules to `outputs/results/association_rules.csv`
+- generates the interactive map at `outputs/maps/crime_map.html`
+
+### 6) Launch the dashboard
+
+```bash
+streamlit run app.py
+```
+
+Then open the local URL shown in the terminal (typically `http://localhost:8501`).
+
+### Troubleshooting
+
+- If you see a message saying the processed dataset was not found, run `python src/preprocessing.py` first.
+- If the dashboard shows no rules or map, run `python main.py` to generate the outputs before launching Streamlit.
+- Make sure you are inside the project root when running the commands above.
+
+---
 
 ## 🔄 Project Workflow
 
